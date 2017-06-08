@@ -15,7 +15,7 @@ class AddTodoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureViews()
+        configureUI()
     }
     
     //MARK: - User Actions
@@ -63,11 +63,11 @@ extension AddTodoViewController: UITextFieldDelegate {
     
 }
 
-//MARK: - Configuration
+//MARK: - Configure UI
 
 extension AddTodoViewController {
     
-    func configureViews() {
+    func configureUI() {
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard)))
     }
 }

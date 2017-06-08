@@ -13,7 +13,7 @@
         <!--//TODO:-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="//TODO:" id="BYZ-38-t0r" customClass="HomeViewController" customModule="ToDo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="//TODO:" automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="HomeViewController" customModule="ToDo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>

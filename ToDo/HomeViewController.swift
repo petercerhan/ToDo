@@ -19,8 +19,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "//TODO:"
-        
+        configurUI()
         configureFetchedResultsController()
     }
     
@@ -153,6 +152,18 @@ extension HomeViewController: NSFetchedResultsControllerDelegate {
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.endUpdates()
+    }
+    
+}
+
+//MARK: - Configure UI
+
+extension HomeViewController {
+    
+    func configurUI() {
+        title = "//TODO:"
+        //Stop table view from filling screen with empty cells
+        tableView.tableFooterView = UIView()
     }
     
 }
