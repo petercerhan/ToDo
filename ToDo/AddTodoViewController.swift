@@ -15,6 +15,7 @@ class AddTodoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureViews()
     }
     
     //MARK: - User Actions
@@ -28,45 +29,42 @@ class AddTodoViewController: UIViewController {
     }
 
     func saveTodo() {
-        print("Todo: \(todoTextField.text ?? "")")
-        print("Note: \(notesTextView.text ?? "")")
-        
         let todoText = "\(todoTextField.text ?? "")"
         let noteText = "\(notesTextView.text ?? "")"
         
-        let moContext = (UIApplication.shared.delegate as! AppDelegate).coreDataStack.context
-        let _ = Todo(title: todoText, note: noteText, context: moContext)
+        let stack = (UIApplication.shared.delegate as! AppDelegate).coreDataStack
+        let _ = Todo(title: todoText, note: noteText, context: stack.context)
         
-        do {
-            try moContext.save()
-        } catch {
-            //Unexpected error - core data operations should succeed
-        }
+        stack.save()
         
         dismiss(animated: true)
     }
     
 }
 
-//MARK:- UITextFieldDelegate
+//MARK: - UITextFieldDelegate
 
 extension AddTodoViewController: UITextFieldDelegate {
     
     func dismissKeyboard() {
         todoTextField.resignFirstResponder()
+        notesTextView.resignFirstResponder()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
         dismissKeyboard()
-        
-        if textField.text == "" {
-            
-        } else {
-            
-        }
         
         return true
     }
     
 }
+
+//MARK: - Configuration
+
+extension AddTodoViewController {
+    
+    func configureViews() {
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard)))
+    }
+}
+
