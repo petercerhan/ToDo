@@ -91,20 +91,23 @@
                                 </connections>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Sample note" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0Ad-wm-X1A">
-                                <rect key="frame" x="16" y="183" width="343" height="416"/>
+                                <rect key="frame" x="16" y="183" width="343" height="409"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FzN-dA-CyD">
-                                <rect key="frame" x="236" y="618" width="53" height="41"/>
+                                <rect key="frame" x="236" y="611" width="53" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Save">
                                     <color key="titleColor" red="0.1176470588" green="0.84313725490000002" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="save" destination="5aR-Mz-YDf" eventType="touchUpInside" id="nla-Gd-s7e"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F1t-pq-gZv">
-                                <rect key="frame" x="75" y="618" width="75" height="41"/>
+                                <rect key="frame" x="75" y="611" width="75" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Cancel">
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -121,6 +124,7 @@
                             <constraint firstItem="0vD-Xn-zUe" firstAttribute="top" secondItem="YIO-Wa-NYc" secondAttribute="bottom" constant="20" id="Adh-OW-vy2"/>
                             <constraint firstItem="0Ad-wm-X1A" firstAttribute="leading" secondItem="5HR-Yu-Iaw" secondAttribute="leadingMargin" id="Aq8-9a-yQ1"/>
                             <constraint firstItem="FzN-dA-CyD" firstAttribute="centerX" secondItem="5HR-Yu-Iaw" secondAttribute="centerX" constant="75" id="EPV-S9-Nge"/>
+                            <constraint firstItem="FzN-dA-CyD" firstAttribute="centerY" secondItem="F1t-pq-gZv" secondAttribute="centerY" id="HpP-nr-OHT"/>
                             <constraint firstItem="pq2-LO-KRb" firstAttribute="leading" secondItem="5HR-Yu-Iaw" secondAttribute="leadingMargin" id="R8y-yJ-bp2"/>
                             <constraint firstItem="YIO-Wa-NYc" firstAttribute="top" secondItem="Kd1-KM-XXy" secondAttribute="bottom" constant="8" id="RbF-DL-8du"/>
                             <constraint firstItem="0vD-Xn-zUe" firstAttribute="leading" secondItem="5HR-Yu-Iaw" secondAttribute="leadingMargin" id="RlL-tF-3pg"/>
@@ -128,8 +132,7 @@
                             <constraint firstItem="YIO-Wa-NYc" firstAttribute="leading" secondItem="5HR-Yu-Iaw" secondAttribute="leadingMargin" id="bl7-CW-D5X"/>
                             <constraint firstItem="pq2-LO-KRb" firstAttribute="top" secondItem="0vD-Xn-zUe" secondAttribute="bottom" constant="35" id="hef-tT-Vws"/>
                             <constraint firstItem="FzN-dA-CyD" firstAttribute="top" secondItem="0Ad-wm-X1A" secondAttribute="bottom" constant="19" id="iX3-ao-RhV"/>
-                            <constraint firstItem="tOr-7i-T24" firstAttribute="top" secondItem="F1t-pq-gZv" secondAttribute="bottom" constant="8" id="muW-24-G3L"/>
-                            <constraint firstItem="tOr-7i-T24" firstAttribute="top" secondItem="FzN-dA-CyD" secondAttribute="bottom" constant="8" id="nWO-FB-dGz"/>
+                            <constraint firstItem="tOr-7i-T24" firstAttribute="top" secondItem="F1t-pq-gZv" secondAttribute="bottom" constant="15" id="muW-24-G3L"/>
                             <constraint firstAttribute="trailingMargin" secondItem="0vD-Xn-zUe" secondAttribute="trailing" id="oqq-jx-AmT"/>
                         </constraints>
                     </view>

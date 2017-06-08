@@ -33,6 +33,7 @@ struct CoreDataStack {
         coordinator = NSPersistentStoreCoordinator(managedObjectModel: model)
         
         context = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+        context.persistentStoreCoordinator = coordinator
         
         let fm = FileManager.default
         guard let docUrl = fm.urls(for: .documentDirectory, in: .userDomainMask).first else {
