@@ -75,6 +75,12 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = storyboard!.instantiateViewController(withIdentifier: "TodoDetailViewController") as! TodoDetailViewController
+        vc.todo = fetchedResultsController!.object(at: indexPath)
+        present(vc, animated: true, completion: nil)
+    }
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let todo = fetchedResultsController!.object(at: indexPath)
@@ -103,6 +109,7 @@ extension HomeViewController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "TodoTableViewCell") as! TodoTableViewCell
         cell.titleLabel.text = todo.title
+        cell.selectionStyle = .none
         
         return cell
     }

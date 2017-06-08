@@ -85,10 +85,10 @@
             </objects>
             <point key="canvasLocation" x="964" y="36.431784107946029"/>
         </scene>
-        <!--View Controller-->
+        <!--Todo Detail View Controller-->
         <scene sceneID="Rwz-up-Duw">
             <objects>
-                <viewController id="eVd-X4-6oR" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TodoDetailViewController" id="eVd-X4-6oR" customClass="TodoDetailViewController" customModule="ToDo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lq8-9g-5o5"/>
                         <viewControllerLayoutGuide type="bottom" id="knq-zO-8Uy"/>
@@ -101,21 +101,24 @@
                                 <rect key="frame" x="158.5" y="606" width="57" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="back" destination="eVd-X4-6oR" eventType="touchUpInside" id="vpS-IU-SpZ"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HqN-yw-YoA">
-                                <rect key="frame" x="160" y="28" width="54" height="26.5"/>
+                                <rect key="frame" x="160" y="35" width="54" height="26.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tiY-A6-Plf">
-                                <rect key="frame" x="16" y="75" width="54" height="26.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tiY-A6-Plf">
+                                <rect key="frame" x="16" y="76.5" width="64" height="26.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Sample note stock" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Lb1-xv-usT">
-                                <rect key="frame" x="16" y="124" width="343" height="448"/>
+                                <rect key="frame" x="16" y="125.5" width="343" height="446.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -124,17 +127,21 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="tiY-A6-Plf" firstAttribute="leading" secondItem="65K-jW-YGd" secondAttribute="leadingMargin" id="7ga-0j-vuv"/>
+                            <constraint firstItem="tiY-A6-Plf" firstAttribute="top" secondItem="HqN-yw-YoA" secondAttribute="bottom" constant="15" id="L3P-Am-pvd"/>
                             <constraint firstItem="rgc-yV-Vdz" firstAttribute="top" secondItem="Lb1-xv-usT" secondAttribute="bottom" constant="34" id="fId-iI-QNc"/>
                             <constraint firstItem="Lb1-xv-usT" firstAttribute="trailing" secondItem="65K-jW-YGd" secondAttribute="trailingMargin" id="fzU-bw-l2s"/>
-                            <constraint firstItem="tiY-A6-Plf" firstAttribute="top" secondItem="lq8-9g-5o5" secondAttribute="bottom" constant="55" id="h4s-5U-T7Q"/>
                             <constraint firstItem="rgc-yV-Vdz" firstAttribute="centerX" secondItem="65K-jW-YGd" secondAttribute="centerX" id="j3l-pF-VnE"/>
                             <constraint firstItem="knq-zO-8Uy" firstAttribute="top" secondItem="rgc-yV-Vdz" secondAttribute="bottom" constant="20" id="kXK-eE-tCS"/>
-                            <constraint firstItem="HqN-yw-YoA" firstAttribute="top" secondItem="lq8-9g-5o5" secondAttribute="bottom" constant="8" id="lBi-wj-afd"/>
+                            <constraint firstItem="HqN-yw-YoA" firstAttribute="top" secondItem="lq8-9g-5o5" secondAttribute="bottom" constant="15" id="lBi-wj-afd"/>
                             <constraint firstItem="Lb1-xv-usT" firstAttribute="top" secondItem="tiY-A6-Plf" secondAttribute="bottom" constant="22.5" id="lbc-e9-A09"/>
                             <constraint firstItem="Lb1-xv-usT" firstAttribute="leading" secondItem="65K-jW-YGd" secondAttribute="leadingMargin" id="sLs-3p-BxF"/>
                             <constraint firstItem="HqN-yw-YoA" firstAttribute="centerX" secondItem="65K-jW-YGd" secondAttribute="centerX" id="tGs-aE-N4X"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="noteTextView" destination="Lb1-xv-usT" id="31B-vY-YLU"/>
+                        <outlet property="titleLabel" destination="HqN-yw-YoA" id="FEJ-uv-gBm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w9V-P9-2iw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

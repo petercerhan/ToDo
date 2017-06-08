@@ -17,8 +17,9 @@
 		E42D12751EE8C6270016E46B /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42D12741EE8C6270016E46B /* CoreDataStack.swift */; };
 		E42D127A1EE8CD470016E46B /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E42D12771EE8C6E70016E46B /* Model.xcdatamodeld */; };
 		E42D127C1EE8CFBF0016E46B /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42D127B1EE8CFBF0016E46B /* Todo.swift */; };
-		E42D127F1EE8D4EA0016E46B /* TodoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42D127E1EE8D4EA0016E46B /* TodoDetailViewController.swift */; };
+		E42D127F1EE8D4EA0016E46B /* AddTodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42D127E1EE8D4EA0016E46B /* AddTodoViewController.swift */; };
 		E42D12811EE8E57F0016E46B /* TodoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42D12801EE8E57F0016E46B /* TodoTableViewCell.swift */; };
+		E42D12841EE907ED0016E46B /* TodoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42D12831EE907ED0016E46B /* TodoDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,8 +56,9 @@
 		E42D12741EE8C6270016E46B /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		E42D12781EE8C6E70016E46B /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		E42D127B1EE8CFBF0016E46B /* Todo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
-		E42D127E1EE8D4EA0016E46B /* TodoDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoDetailViewController.swift; sourceTree = "<group>"; };
+		E42D127E1EE8D4EA0016E46B /* AddTodoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTodoViewController.swift; sourceTree = "<group>"; };
 		E42D12801EE8E57F0016E46B /* TodoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoTableViewCell.swift; sourceTree = "<group>"; };
+		E42D12831EE907ED0016E46B /* TodoDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,7 +153,8 @@
 			isa = PBXGroup;
 			children = (
 				E42D12481EE8C2500016E46B /* HomeViewController.swift */,
-				E42D127E1EE8D4EA0016E46B /* TodoDetailViewController.swift */,
+				E42D127E1EE8D4EA0016E46B /* AddTodoViewController.swift */,
+				E42D12831EE907ED0016E46B /* TodoDetailViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -302,12 +305,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E42D12811EE8E57F0016E46B /* TodoTableViewCell.swift in Sources */,
+				E42D12841EE907ED0016E46B /* TodoDetailViewController.swift in Sources */,
 				E42D12751EE8C6270016E46B /* CoreDataStack.swift in Sources */,
 				E42D12491EE8C2500016E46B /* HomeViewController.swift in Sources */,
 				E42D12471EE8C2500016E46B /* AppDelegate.swift in Sources */,
 				E42D127A1EE8CD470016E46B /* Model.xcdatamodeld in Sources */,
 				E42D127C1EE8CFBF0016E46B /* Todo.swift in Sources */,
-				E42D127F1EE8D4EA0016E46B /* TodoDetailViewController.swift in Sources */,
+				E42D127F1EE8D4EA0016E46B /* AddTodoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
