@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TodoDetailViewController: UIViewController {
+class AddTodoViewController: UIViewController {
 
     @IBOutlet var todoTextField: UITextField!
     @IBOutlet var notesTextView: UITextView!
@@ -50,7 +50,7 @@ class TodoDetailViewController: UIViewController {
 
 //MARK:- UITextFieldDelegate
 
-extension TodoDetailViewController: UITextFieldDelegate {
+extension AddTodoViewController: UITextFieldDelegate {
     
     func dismissKeyboard() {
         todoTextField.resignFirstResponder()

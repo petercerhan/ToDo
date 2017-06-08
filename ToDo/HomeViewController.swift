@@ -55,7 +55,7 @@ class HomeViewController: UIViewController {
     //MARK: - User Actions
     
     @IBAction func addTodo() {
-        let vc = storyboard!.instantiateViewController(withIdentifier: "TodoDetailViewController")
+        let vc = storyboard!.instantiateViewController(withIdentifier: "AddTodoViewController")
         present(vc, animated: true, completion: nil)
     }
     
