@@ -7,13 +7,49 @@
 //
 
 import UIKit
+import CoreData
 
 class HomeViewController: UIViewController {
 
+    @IBOutlet var tableView: UITableView!
+    
+    let stack = (UIApplication.shared.delegate as! AppDelegate).coreDataStack
+    var fetchedResultsController : NSFetchedResultsController<Todo>?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "//TODO:"
+        
+        configureFetchedResultsController()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    func configureFetchedResultsController() {
+        let request = NSFetchRequest<Todo>(entityName: "Todo")
+        request.sortDescriptors = [NSSortDescriptor(key: "dateCreated", ascending: false)]
+        
+        let frc = NSFetchedResultsController(fetchRequest: request, managedObjectContext: stack.context, sectionNameKeyPath: nil, cacheName: nil)
+        frc.delegate = self
+        
+        fetchedResultsController = frc
+        
+        executeSearch()
+        tableView.reloadData()
+    }
+    
+    func executeSearch() {
+        if let fc = fetchedResultsController {
+            do {
+                try fc.performFetch()
+            } catch _ as NSError {
+                
+            }
+        }
+    }
+
     
     //MARK: - User Actions
     
@@ -22,9 +58,68 @@ class HomeViewController: UIViewController {
         present(vc, animated: true, completion: nil)
     }
     
-    
-    
-    //TODO: Build App
-
 }
 
+//MARK: - UITableViewDataSource
+
+extension HomeViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let fc = fetchedResultsController {
+            return fc.sections![section].numberOfObjects
+        } else {
+            return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let todo = fetchedResultsController!.object(at: indexPath) as Todo
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TodoTableViewCell") as! TodoTableViewCell
+        cell.titleLabel.text = todo.title
+        
+        return cell
+    }
+    
+    
+}
+
+//MARK: - NSFetchedResultsControllerDelegate
+
+extension HomeViewController: NSFetchedResultsControllerDelegate {
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+        
+        let set = IndexSet(integer: sectionIndex)
+        
+        switch (type) {
+        case .insert:
+            tableView.insertSections(set, with: .fade)
+        case .delete:
+            tableView.deleteSections(set, with: .fade)
+        default:
+            break
+        }
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        
+        switch(type) {
+        case .insert:
+            tableView.insertRows(at: [newIndexPath!], with: .fade)
+        case .delete:
+            tableView.deleteRows(at: [indexPath!], with: .fade)
+        default:
+            break
+        }
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+    }
+    
+}
