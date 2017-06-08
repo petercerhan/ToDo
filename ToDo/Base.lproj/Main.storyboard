@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TlD-Is-CfQ">
-                                <rect key="frame" x="0.0" y="166" width="375" height="501"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TodoTableViewCell" id="1cn-Zd-0rA" customClass="TodoTableViewCell" customModule="ToDo" customModuleProvider="target">
@@ -34,14 +34,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bvZ-Bo-KjY">
-                                                    <rect key="frame" x="18" y="10.5" width="49" height="24"/>
+                                                    <rect key="frame" x="23" y="10.5" width="49" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="bvZ-Bo-KjY" firstAttribute="leading" secondItem="8YM-jI-LgS" secondAttribute="leadingMargin" constant="10" id="5tk-M5-Eyb"/>
+                                                <constraint firstItem="bvZ-Bo-KjY" firstAttribute="leading" secondItem="8YM-jI-LgS" secondAttribute="leadingMargin" constant="15" id="5tk-M5-Eyb"/>
                                                 <constraint firstItem="bvZ-Bo-KjY" firstAttribute="centerY" secondItem="8YM-jI-LgS" secondAttribute="centerY" id="sTp-C5-2Kf"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -52,25 +52,32 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="Chs-63-D91"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="h8s-hQ-2mQ"/>
                                 </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="TlD-Is-CfQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="6UI-PZ-nms"/>
-                            <constraint firstItem="TlD-Is-CfQ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="102" id="dZC-Ck-4P0"/>
+                            <constraint firstItem="TlD-Is-CfQ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="dZC-Ck-4P0"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="TlD-Is-CfQ" secondAttribute="bottom" id="faZ-UP-DRf"/>
                             <constraint firstAttribute="trailing" secondItem="TlD-Is-CfQ" secondAttribute="trailing" id="n4Y-Qw-T8K"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="dSd-CD-Bp7">
-                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="9wf-iE-PTU">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="URX-L2-7LL">
+                            <connections>
+                                <action selector="edit" destination="BYZ-38-t0r" id="o0q-UH-cBS"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="9wf-iE-PTU">
                             <connections>
                                 <action selector="addTodo" destination="BYZ-38-t0r" id="D0J-ag-yHS"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="editButton" destination="URX-L2-7LL" id="Inw-q8-Zfb"/>
                         <outlet property="tableView" destination="TlD-Is-CfQ" id="9b7-OQ-2fH"/>
                     </connections>
                 </viewController>

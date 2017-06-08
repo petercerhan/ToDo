@@ -57,6 +57,14 @@ struct CoreDataStack {
     func addStoreCoordinator(_ storeType: String, configuration: String?, storeURL: URL, options : [NSObject:AnyObject]?) throws {
         try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: dbURL, options: options)
     }
+    
+    func save() {
+        do {
+            try context.save()
+        } catch {
+            //Unexpected error - core data operations should succeed
+        }
+    }
 
 }
 

@@ -12,6 +12,7 @@ import CoreData
 class HomeViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var editButton: UIBarButtonItem!
     
     let stack = (UIApplication.shared.delegate as! AppDelegate).coreDataStack
     var fetchedResultsController : NSFetchedResultsController<Todo>?
@@ -58,6 +59,31 @@ class HomeViewController: UIViewController {
         present(vc, animated: true, completion: nil)
     }
     
+    @IBAction func edit() {
+        if tableView.isEditing {
+            tableView.setEditing(false, animated: true)
+            editButton.title = "Edit"
+        } else {
+            tableView.setEditing(true, animated: true)
+            editButton.title = "Done"
+        }
+    }
+    
+}
+
+//MARK: - UITableViewDelegate
+
+extension HomeViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let todo = fetchedResultsController!.object(at: indexPath)
+            
+            stack.context.delete(todo)
+            
+            stack.save()
+        }
+    }
 }
 
 //MARK: - UITableViewDataSource
