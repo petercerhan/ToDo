@@ -113,7 +113,6 @@ extension HomeViewController: UITableViewDataSource {
         return cell
     }
     
-    
 }
 
 //MARK: - NSFetchedResultsControllerDelegate
