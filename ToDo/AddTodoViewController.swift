@@ -21,7 +21,11 @@ class AddTodoViewController: UIViewController {
     //MARK: - User Actions
     
     @IBAction func save() {
-        saveTodo()
+        if todoTextField.text == "" {
+            alert(title: nil, message: "Please enter a title!", buttonTitle: "Dismiss")
+        } else {
+            saveTodo()
+        }
     }
     
     @IBAction func cancel() {
@@ -29,7 +33,7 @@ class AddTodoViewController: UIViewController {
     }
 
     func saveTodo() {
-        let todoText = "\(todoTextField.text ?? "")"
+        let todoText = "\(todoTextField.text!)"
         let noteText = "\(notesTextView.text ?? "")"
         
         let stack = (UIApplication.shared.delegate as! AppDelegate).coreDataStack
