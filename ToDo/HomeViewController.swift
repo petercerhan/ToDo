@@ -68,6 +68,20 @@ class HomeViewController: UIViewController {
         }
     }
     
+    @IBAction func clearCompleted() {
+        guard let todos = fetchedResultsController?.fetchedObjects else {
+            return
+        }
+        
+        for todo in todos {
+            if todo.complete {
+                stack.context.delete(todo)
+            }
+        }
+        
+        stack.save()
+    }
+    
 }
 
 //MARK: - UITableViewDelegate
@@ -151,7 +165,6 @@ extension HomeViewController: NSFetchedResultsControllerDelegate {
         case .delete:
             tableView.deleteRows(at: [indexPath!], with: .fade)
         case .update:
-            print("update")
             tableView.reloadRows(at: [indexPath!], with: .none)
         default:
             break
