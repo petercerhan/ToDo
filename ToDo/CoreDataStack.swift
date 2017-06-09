@@ -17,7 +17,7 @@ struct CoreDataStack {
     internal let dbURL: URL
     let context: NSManagedObjectContext
 
-    // MARK: - setup
+    // MARK: - Assembly
 
     init?(modelName: String) {
         
@@ -42,22 +42,15 @@ struct CoreDataStack {
         
         self.dbURL = docUrl.appendingPathComponent("model.sqlite")
         
-        // Options for migration
-        let options = [NSInferMappingModelAutomaticallyOption: true, NSMigratePersistentStoresAutomaticallyOption: true]
-        
         do {
-            try addStoreCoordinator(NSSQLiteStoreType, configuration: nil, storeURL: dbURL, options: options as [NSObject : AnyObject]?)
+            try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: dbURL, options: nil)
         } catch {
             fatalError("Error while configuring core data stack")
         }
     }
 
-    // MARK: Utilities (remove(?))
+    // MARK: - Utilities
 
-    func addStoreCoordinator(_ storeType: String, configuration: String?, storeURL: URL, options : [NSObject:AnyObject]?) throws {
-        try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: dbURL, options: options)
-    }
-    
     func save() {
         do {
             try context.save()
@@ -68,11 +61,3 @@ struct CoreDataStack {
 
 }
 
-extension CoreDataStack  {
-    
-    func dropAllData() throws {
-        try coordinator.destroyPersistentStore(at: dbURL, ofType: NSSQLiteStoreType , options: nil)
-        try addStoreCoordinator(NSSQLiteStoreType, configuration: nil, storeURL: dbURL, options: nil)
-    }
-    
-}
