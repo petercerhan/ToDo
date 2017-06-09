@@ -23,10 +23,6 @@ class HomeViewController: UIViewController {
         configureFetchedResultsController()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
     func configureFetchedResultsController() {
         let request = NSFetchRequest<Todo>(entityName: "Todo")
         request.sortDescriptors = [NSSortDescriptor(key: "dateCreated", ascending: false)]
@@ -45,7 +41,7 @@ class HomeViewController: UIViewController {
             do {
                 try fc.performFetch()
             } catch _ as NSError {
-                
+    
             }
         }
     }
@@ -72,13 +68,11 @@ class HomeViewController: UIViewController {
         guard let todos = fetchedResultsController?.fetchedObjects else {
             return
         }
-        
         for todo in todos {
             if todo.complete {
                 stack.context.delete(todo)
             }
         }
-        
         stack.save()
     }
     
@@ -97,9 +91,7 @@ extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let todo = fetchedResultsController!.object(at: indexPath)
-            
             stack.context.delete(todo)
-            
             stack.save()
         }
     }

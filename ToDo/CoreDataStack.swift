@@ -62,7 +62,7 @@ struct CoreDataStack {
         do {
             try context.save()
         } catch {
-            //Unexpected error - core data operations should succeed
+            
         }
     }
 

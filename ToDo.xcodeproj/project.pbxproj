@@ -112,7 +112,6 @@
 			isa = PBXGroup;
 			children = (
 				E42D12461EE8C2500016E46B /* AppDelegate.swift */,
-				E42D12851EE916980016E46B /* UIViewController.swift */,
 				E42D127D1EE8D4D90016E46B /* Controller */,
 				E42D12821EE8E6DF0016E46B /* View */,
 				E42D12761EE8C6D50016E46B /* Model */,
@@ -158,6 +157,7 @@
 				E42D12481EE8C2500016E46B /* HomeViewController.swift */,
 				E42D127E1EE8D4EA0016E46B /* AddTodoViewController.swift */,
 				E42D12831EE907ED0016E46B /* TodoDetailViewController.swift */,
+				E42D12851EE916980016E46B /* UIViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
