@@ -109,6 +109,12 @@ extension HomeViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TodoTableViewCell") as! TodoTableViewCell
         cell.titleLabel.text = todo.title
         cell.selectionStyle = .none
+        cell.checkButton.setImage(UIImage(named: todo.complete ? "Checked" : "Unchecked"), for: .normal)
+        
+        cell.completeHandler = {
+            todo.complete = !(todo.complete)
+            self.stack.save()
+        }
         
         return cell
     }
@@ -144,6 +150,9 @@ extension HomeViewController: NSFetchedResultsControllerDelegate {
             tableView.insertRows(at: [newIndexPath!], with: .fade)
         case .delete:
             tableView.deleteRows(at: [indexPath!], with: .fade)
+        case .update:
+            print("update")
+            tableView.reloadRows(at: [indexPath!], with: .none)
         default:
             break
         }
